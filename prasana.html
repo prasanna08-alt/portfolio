@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRASANNA KUMAR J | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --card-bg: #121222;
+            --card-border: #222244;
+            --text-main: #f0f0ff;
+            --text-muted: #9494c2;
+            --accent-violet: #8a2be2;
+            --accent-blue: #00d2ff;
+            --gradient-primary: linear-gradient(135deg, #8a2be2, #00d2ff);
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+            padding: 18px 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .brand-logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: var(--gradient-primary);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 5vw 80px 5vw;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 30px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+        }
+
+        .contact-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .pill:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: var(--gradient-primary);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .profile-img-wrap {
+            width: 100%;
+            height: 320px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- SECTION STYLES --- */
+        section {
+            padding: 80px 5vw;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--card-border), transparent);
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-violet);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #1a1a30;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* --- PROJECTS GRID --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.2);
+        }
+
+        .project-thumb {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--card-border);
+            display: block;
+        }
+
+        .project-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .project-links a:hover {
+            background: var(--gradient-primary);
+            color: #fff;
+        }
+
+        /* --- EXPERIENCE & EDUCATION --- */
+        .timeline {
+            display: grid;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-violet);
+        }
+
+        .timeline-role {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .timeline-company {
+            font-size: 14px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 700;
+            background: #1a1a30;
+            border: 1px solid var(--card-border);
+            color: var(--accent-blue);
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* --- PERSONAL DETAILS --- */
+        .details-grid {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .detail-item label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .detail-item p {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 40px 5vw;
+            background: #06060c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--text-main);
+            font-size: 16px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+            }
+            .hero-title {
+                font-size: 38px;
+            }
+            nav {
+                display: none;
+            }
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand-logo">PRASANNA kumar</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+        </nav>
+        <a href="mailto:prasannamfz@gmail.com" class="contact-btn">Contact Me</a>
+    </header>
+<section class="hero" id="about" style="
+    position: relative;
+    background: linear-gradient(135deg, rgba(10, 10, 18, 0.9), rgba(18, 18, 34, 0.85)), 
+                url('prasanna.jpg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    margin-top: 150px;
+">
+    <div data-aos="fade-right" data-aos-duration="1000">
+        <h1 class="hero-title">CLAIMS ADJUDICATOR & <span>SOFTWARE DEV</span></h1>
+        <p class="hero-subtitle">
+            Over 3 years of healthcare claims processing experience combined with professional frontend development expertise. Dedicated to building performant interfaces and optimizing process workflows.
+        </p>
+        <div class="hero-cta">
+            <a href="#projects" class="btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="contact-pills">
+            <a href="mailto:prasannamfz@gmail.com" class="pill"><i class="far fa-envelope"></i> prasannamfz@gmail.com</a>
+            <a href="tel:+918124600535" class="pill"><i class="fas fa-phone"></i> +91 8124600535</a>
+            <a href="https://github.com/prasanna08-alt" target="_blank" class="pill"><i class="fab fa-github"></i> prasanna08-alt</a>
+        </div>
+    </div>
+    </div>
+</section>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-header" data-aos="fade-up">SKILL SET</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Core Systems & Web</h3>
+                <div class="tags">
+                    <span class="tag">HTML5 / CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">COB</span>
+                    <span class="tag">Medicare</span>
+                    <span class="tag">Blue Square</span>
+                </div>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Software & Tools</h3>
+                <div class="tags">
+                    <span class="tag">Git / GitHub</span>
+                    <span class="tag">MS Office</span>
+                    <span class="tag">Procedure Flow</span>
+                </div>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Healthcare Insurance</h3>
+                <div class="tags">
+                    <span class="tag">Claims Adjudication</span>
+                    <span class="tag">Overpayment Recovery</span>
+                    <span class="tag">Medicaid</span>
+                </div>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Certifications</h3>
+                <div class="tags">
+                    <span class="tag">Artlysoft Dev Course</span>
+                    <span class="tag">B.Sc IT (70%)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-header" data-aos="fade-up">PROJECTS</h2>
+        <div class="projects-grid">
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop" alt="Watch Store" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Watch Store</div>
+                    <div class="project-desc">Sleek dark-themed web store layout tailored for high-end product display.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/watch" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/watch/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Home Showcase" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Home Showcase</div>
+                    <div class="project-desc">Interior design presentation layout emphasizing strong spatial visuals.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/home" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/home/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiWzUgn05gIMvuSjH2SBaoK2wv9slGLbemcQF2IC_6JBxoBAJF-h2YiEQ&s=10" alt="Sports Platform" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Sports Platform</div>
+                    <div class="project-desc">Dynamic web design tailored for sports equipment and activity showcases.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/sports-" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/sports-/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop" alt="Salon & Spa" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Salon & Spa</div>
+                    <div class="project-desc">Modern service booking layout designed for beauty and grooming studios.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/salon" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/salon/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&auto=format&fit=crop" alt="Home Decor" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Home Decor</div>
+                    <div class="project-desc">Minimalist layout highlighting decorative craft and furniture catalogs.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/HomeDecor" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/HomeDecor/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop" alt="Shoe Store" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Shoe Store</div>
+                    <div class="project-desc">High-energy footwear e-commerce concept focusing on grid displays.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/shoe" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/shoe/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&auto=format&fit=crop" alt="Laundry Service" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Laundry Service</div>
+                    <div class="project-desc">Clean, utility-driven portal design for local laundry and dry-cleaning.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/laundry" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/laundry/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+                <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&auto=format&fit=crop" alt="Super Market" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Super Market</div>
+                    <div class="project-desc">Organized web architecture for multi-category grocery store interfaces.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/market" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/market/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop" alt="Bookstore" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Bookstore</div>
+                    <div class="project-desc">Cozy digital library and retail store framework for literary collections.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/bookstore" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/bookstore/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="550">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTV77ELlsjgWYAYCBP_1-PieaqnpImT_2BoOEUqXZEnA&s=10" alt="Dairy Shop" class="project-thumb">
+                <div class="project-info">
+                    <div class="project-title">Dairy Shop</div>
+                    <div class="project-desc">Fresh, minimal interface built for dairy and artisanal produce sales.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasanna08-alt/dairyshop" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://prasanna08-alt.github.io/dairyshop/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-header" data-aos="fade-up">WORK EXPERIENCE</h2>
+        <div class="timeline">
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="timeline-role">Claims Associate</div>
+                    <div class="timeline-company">Carelon Global Solutions • Bengaluru</div>
+                    <div class="timeline-desc">
+                        Supervising claims adjudication processes, managing inventory via FIFO protocols, ensuring compliance with quality metrics, and overseeing delivery in US healthcare claims processing.
+                    </div>
+                </div>
+                <div class="timeline-date">Jan 16, 2025 – Present</div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <div class="timeline-role">Claims Associate</div>
+                    <div class="timeline-company">Cognizant Technology Solutions • Coimbatore</div>
+                    <div class="timeline-desc">
+                        Processed Medicare, Medicaid, and Commercial insurance claims. Handled medical records verification and recovery of overpayments while maintaining process accuracy.
+                    </div>
+                </div>
+                <div class="timeline-date">Jan 25, 2022 – Nov 26, 2024</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-header" data-aos="fade-up">EDUCATION & CERTIFICATIONS</h2>
+        <div class="timeline">
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="timeline-role">Software Development Program</div>
+                    <div class="timeline-company">Artlysoft</div>
+                    <div class="timeline-desc">Professional course completion in full-stack web technologies and frontend development practices.</div>
+                </div>
+                <div class="timeline-date">Completed</div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+                <div>
+                    <div class="timeline-role">Bachelor of Science in Information Technology (B.Sc IT)</div>
+                    <div class="timeline-company">VLB Janakiammal College of Arts and Science</div>
+                    <div class="timeline-desc">Graduated with an overall score of 70%.</div>
+                </div>
+                <div class="timeline-date">Graduated</div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <div class="timeline-role">Higher Secondary Certificate (12th)</div>
+                    <div class="timeline-company">Ramnagar Suburban Higher Secondary School</div>
+                    <div class="timeline-desc">Completed HSC examinations under State Board curriculum.</div>
+                </div>
+                <div class="timeline-date">Passed</div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+                <div>
+                    <div class="timeline-role">Secondary School Leaving Certificate (10th)</div>
+                    <div class="timeline-company">Rukmanikannan Vidyalaya High School</div>
+                    <div class="timeline-desc">Completed with a score of 65%.</div>
+                </div>
+                <div class="timeline-date">Passed</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="personal" data-aos="fade-up">
+        <h2 class="section-header">PERSONAL DETAILS</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <label>Full Name</label>
+                <p>Prasanna Kumar J</p>
+            </div>
+            <div class="detail-item">
+                <label>Father's Name</label>
+                <p>Jayachandran K</p>
+            </div>
+            <div class="detail-item">
+                <label>Date of Birth</label>
+                <p>08.09.2000</p>
+            </div>
+            <div class="detail-item">
+                <label>Languages Known</label>
+                <p>English, Tamil</p>
+            </div>
+            <div class="detail-item" style="grid-column: 1 / -1;">
+                <label>Permanent Address</label>
+                <p>61/L Perumal Swamy, BK Pudur, Kuniyamuthur, Coimbatore - 641008, Tamil Nadu, India</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">© 2026 PRASANNA KUMAR J. All rights reserved.</div>
+        <div class="footer-socials">
+            <a href="mailto:prasannamfz@gmail.com"><i class="far fa-envelope"></i></a>
+            <a href="https://github.com/prasanna08-alt" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="tel:+918124600535"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
